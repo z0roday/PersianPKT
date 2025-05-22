@@ -1,74 +1,87 @@
 # PersianPKT
 
-A modern package manager for Linux distributions focusing on serving Iranian users
+A modern package manager designed for Linux distributions with a focus on serving Iranian users.
 
-## About
+## What is PersianPKT?
 
-PersianPKT is a powerful, modern package manager designed for Linux distributions. This tool was created to improve the experience of Iranian users when installing and managing software.
+PersianPKT is a powerful package management system built with Rust that makes software installation and management easier on Linux systems. It's specially designed to provide fast, reliable access to software repositories for users in Iran.
 
-## Features
+## Key Features
 
-- Install and manage packages
-- Support for multiple repositories
-- Downloads with progress display
-- Dependency management system
-- Modern and user-friendly command line interface
+- Fast and efficient package installation and removal
+- Smart repository management with mirror selection
+- Dependency tracking and resolution
+- Clean and intuitive command-line interface
+- Progress visualization for downloads and installations
+- Configurable package sources
+- Secure package verification
 
-## Development Requirements
+## Platform Support
 
-To develop this project, you'll need:
+PersianPKT is designed to run on Linux distributions. While the code can be developed on other platforms like Windows, the tool itself is intended for use on Linux systems.
 
-- Rust 1.70.0 or higher
-- C++ compiler (on Windows: Visual Studio Build Tools)
+## Development Setup
 
-### Fixing linker error on Windows
-
-If you encounter this error:
-```
-error: linker `link.exe` not found
-```
-
-Please install Visual Studio Build Tools:
-
-1. Download and install [Visual Studio Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
-2. During installation, select the "Desktop development with C++" component
-3. After installation, open a new terminal and run:
-
-```
-cargo build
-```
-
-## Installation Instructions
+### Linux (Recommended)
 
 ```bash
+# Install Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 # Clone the repository
 git clone https://github.com/youruser/persianpkt.git
 cd persianpkt
 
 # Build the project
-cargo build --release
+cargo build
 
-# Install
+# Run tests
+cargo test
+
+# Install locally
 cargo install --path .
 ```
 
-## How to Use
+### Windows (Development Only)
+
+For Windows users who want to contribute to the code:
+
+1. Install [Visual Studio Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) with the "Desktop development with C++" workload
+2. Install Rust from [rustup.rs](https://rustup.rs/)
+3. Build with `cargo build`
+
+Alternatively, use WSL (Windows Subsystem for Linux) for a more native Linux development experience.
+
+## Usage Examples
 
 ```bash
-# Search for a package
-pkt search <package-name>
-
-# Install a package
-pkt install <package-name>
-
-# Update packages
+# Update repository information
 pkt update
 
-# Manage repositories
-pkt repo list
-pkt repo add <repo-url>
+# Search for a package
+pkt search firefox
+
+# Install a package
+pkt install firefox
+
+# Remove a package
+pkt remove firefox
+
+# List installed packages
+pkt list
+
+# Add a new repository
+pkt repo add myrepo https://example.com/repo
 ```
+
+## Configuration
+
+PersianPKT stores its configuration in `~/.config/persianpkt/`. You can modify repository sources, priorities, and other settings there.
+
+## Contributing
+
+We welcome contributions! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is released under the MIT license.
+This project is released under the MIT License.
