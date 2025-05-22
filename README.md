@@ -1,78 +1,74 @@
 # PersianPKT
 
-A modern package manager for Linux distributions focused on serving Iranian users with fast local repositories. Built with Rust for speed, reliability, and security.
+A modern package manager for Linux distributions focusing on serving Iranian users
+
+## About
+
+PersianPKT is a powerful, modern package manager designed for Linux distributions. This tool was created to improve the experience of Iranian users when installing and managing software.
 
 ## Features
 
-- Powerful repository management
-- Package installation, removal, and updating
-- Automatic dependency resolution
-- Fast and efficient caching system
-- Smart mirror selection based on connection speed
-- Security features including package verification
-- User-friendly command-line interface
+- Install and manage packages
+- Support for multiple repositories
+- Downloads with progress display
+- Dependency management system
+- Modern and user-friendly command line interface
 
-## Installation
+## Development Requirements
 
-Currently requires building from source:
+To develop this project, you'll need:
+
+- Rust 1.70.0 or higher
+- C++ compiler (on Windows: Visual Studio Build Tools)
+
+### Fixing linker error on Windows
+
+If you encounter this error:
+```
+error: linker `link.exe` not found
+```
+
+Please install Visual Studio Build Tools:
+
+1. Download and install [Visual Studio Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+2. During installation, select the "Desktop development with C++" component
+3. After installation, open a new terminal and run:
+
+```
+cargo build
+```
+
+## Installation Instructions
 
 ```bash
-git clone https://github.com/z0roday/persianpkt.git
+# Clone the repository
+git clone https://github.com/youruser/persianpkt.git
 cd persianpkt
+
+# Build the project
 cargo build --release
-sudo cp target/release/persianpkt /usr/local/bin/pkt
+
+# Install
+cargo install --path .
 ```
 
-## Usage
+## How to Use
 
-Install packages:
 ```bash
-pkt install package-name
-```
+# Search for a package
+pkt search <package-name>
 
-Remove packages:
-```bash
-pkt remove package-name
-```
+# Install a package
+pkt install <package-name>
 
-Update package lists:
-```bash
+# Update packages
 pkt update
-```
 
-Upgrade installed packages:
-```bash
-pkt upgrade
-```
-
-Search for packages:
-```bash
-pkt search query
-```
-
-Show package information:
-```bash
-pkt show package-name
-```
-
-Manage repositories:
-```bash
-pkt repo add repo-name repo-url
-pkt repo remove repo-name
+# Manage repositories
 pkt repo list
-pkt repo enable repo-name
-pkt repo disable repo-name
+pkt repo add <repo-url>
 ```
-
-## Contributing
-
-Want to help? Great!
-
-1. Fork the project
-2. Create your feature branch
-3. Make your changes
-4. Submit a pull request
 
 ## License
 
-Released under the MIT License
+This project is released under the MIT license.
