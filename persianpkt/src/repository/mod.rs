@@ -1,5 +1,7 @@
-mod repository;
-mod source;
+pub mod repository;
 
-pub use repository::*;
+pub use repository::{Repository, RepositoryManager};
+
+mod source;
+ 
 pub use source::*; 
